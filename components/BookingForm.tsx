@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import { BookingStatus } from '../types';
-import { Check, MapPin, Clock, ArrowRight } from 'lucide-react';
+import { Check, MapPin, Clock, ArrowRight, Calendar, Wrench } from 'lucide-react';
 
 const BookingForm: React.FC = () => {
   const [status, setStatus] = useState<BookingStatus>(BookingStatus.IDLE);
@@ -9,10 +9,16 @@ const BookingForm: React.FC = () => {
     name: '',
     email: '',
     phone: '',
-    service: 'General Plumbing',
+    service: 'General Plumbing Repair',
     description: '',
     zip: ''
   });
+
+  const getArrivalWindow = (zip: string) => {
+    if (zip.startsWith('606')) return "45 - 75 minutes";
+    if (zip.startsWith('60')) return "60 - 90 minutes";
+    return "90 - 120 minutes";
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -25,13 +31,64 @@ const BookingForm: React.FC = () => {
 
   if (status === BookingStatus.SUCCESS) {
     return (
-      <div className="max-w-xl mx-auto my-20 bg-white p-12 rounded-3xl shadow-2xl text-center">
-        <div className="w-20 h-20 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
-          <Check className="w-10 h-10" />
+      <div className="container mx-auto px-6 py-20">
+        <div className="max-w-2xl mx-auto bg-white rounded-3xl shadow-2xl overflow-hidden border border-slate-100">
+          <div className="bg-emerald-500 p-8 text-center text-white">
+            <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4 border border-white/30">
+              <Check className="w-8 h-8 text-white" />
+            </div>
+            <h2 className="text-3xl font-black mb-2">Booking Confirmed!</h2>
+            <p className="opacity-90">Our dispatcher is currently assigning your technician.</p>
+          </div>
+          
+          <div className="p-10 space-y-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="p-6 bg-slate-50 rounded-2xl border border-slate-100">
+                <div className="flex items-center gap-3 text-blue-600 mb-2">
+                  <Wrench className="w-5 h-5" />
+                  <span className="font-bold uppercase tracking-wider text-xs">Service Type</span>
+                </div>
+                <p className="text-xl font-bold text-slate-900">{formData.service}</p>
+              </div>
+              
+              <div className="p-6 bg-blue-50 rounded-2xl border border-blue-100">
+                <div className="flex items-center gap-3 text-blue-600 mb-2">
+                  <Clock className="w-5 h-5" />
+                  <span className="font-bold uppercase tracking-wider text-xs">Estimated Arrival</span>
+                </div>
+                <p className="text-xl font-bold text-blue-700">{getArrivalWindow(formData.zip)}</p>
+              </div>
+            </div>
+
+            <div className="border-t border-slate-100 pt-8">
+              <h4 className="font-bold text-slate-900 mb-4 flex items-center gap-2">
+                <Calendar className="w-5 h-5 text-slate-400" />
+                Next Steps
+              </h4>
+              <ul className="space-y-4">
+                <li className="flex gap-4">
+                  <div className="w-6 h-6 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center text-xs font-bold shrink-0">1</div>
+                  <p className="text-slate-600 text-sm">You will receive an SMS confirmation at <span className="font-bold text-slate-900">{formData.phone}</span> shortly.</p>
+                </li>
+                <li className="flex gap-4">
+                  <div className="w-6 h-6 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center text-xs font-bold shrink-0">2</div>
+                  <p className="text-slate-600 text-sm">Our technician will call you when they are 10 minutes away from your location.</p>
+                </li>
+                <li className="flex gap-4">
+                  <div className="w-6 h-6 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center text-xs font-bold shrink-0">3</div>
+                  <p className="text-slate-600 text-sm">Standard diagnostic fee applies if work is not performed today.</p>
+                </li>
+              </ul>
+            </div>
+
+            <button 
+              onClick={() => setStatus(BookingStatus.IDLE)} 
+              className="w-full bg-slate-900 text-white py-4 rounded-xl font-bold hover:bg-slate-800 transition-all shadow-lg"
+            >
+              Return to Form
+            </button>
+          </div>
         </div>
-        <h2 className="text-3xl font-black mb-4">Service Scheduled!</h2>
-        <p className="text-slate-600 mb-8">We've received your request. A dispatcher will call you within 15 minutes to confirm the arrival time.</p>
-        <button onClick={() => setStatus(BookingStatus.IDLE)} className="bg-blue-600 text-white px-8 py-3 rounded-full font-bold">Done</button>
       </div>
     );
   }
