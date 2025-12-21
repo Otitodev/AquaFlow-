@@ -1,0 +1,7 @@
+{
+  "name": "AquaFlow Plumbing Chicago",
+  "description": "A modern, high-performance service website for AquaFlow Plumbing in Chicago, featuring AI-powered diagnostics and instant booking.",
+  "requestFramePermissions": [
+    "geolocation"
+  ]
+}
