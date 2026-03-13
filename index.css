@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@import "tailwindcss";
+
+/* ── Design Tokens via Tailwind v4 @theme ───────────────────────
+   These automatically generate Tailwind utility classes:
+   --color-brand-navy   →  bg-brand-navy, text-brand-navy, border-brand-navy
+   --color-brand-accent →  bg-brand-accent, hover:bg-brand-accent, etc.
+─────────────────────────────────────────────────────────────── */
+@theme {
+  /* Brand palette */
+  --color-brand-navy:          #1e3a8a;
+  --color-brand-navy-light:    #2d4fa3;
+  --color-brand-blue:          #2563eb;
+  --color-brand-blue-dark:     #1d4ed8;
+  --color-brand-accent:        #f97316;
+  --color-brand-accent-dark:   #ea580c;
+
+  /* Surfaces */
+  --color-surface:             #f8fafc;
+  --color-surface-card:        #ffffff;
+  --color-surface-muted:       #f1f5f9;
+
+  /* Content / text */
+  --color-content-primary:     #0f172a;
+  --color-content-secondary:   #475569;
+  --color-content-muted:       #94a3b8;
+
+  /* Emergency state */
+  --color-emergency:           #ef4444;
+  --color-emergency-bg:        #fef2f2;
+  --color-emergency-border:    #fecaca;
+
+  /* Typography */
+  --font-sans: 'Inter', system-ui, sans-serif;
+
+  /* Shadow extensions */
+  --shadow-card:       0 1px 3px 0 rgb(0 0 0 / 0.07), 0 1px 2px -1px rgb(0 0 0 / 0.07);
+  --shadow-card-hover: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+}
+
+/* ── Layout vars (not Tailwind utilities) ───────────────────── */
+:root {
+  --section-padding: 5rem;
+  --container-px:    1.5rem;
+}
+
+/* ── Base ───────────────────────────────────────────────────── */
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-surface);
+  color: var(--color-content-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background-color: #dbeafe; /* blue-100 */
+  color: #1e3a8a;            /* brand-navy */
+}
+
+/* ── Glassmorphism ──────────────────────────────────────────── */
+.glass-morphism {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* ── Animations ─────────────────────────────────────────────── */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-10px); }
+}
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+/* ── Custom scrollbar ───────────────────────────────────────── */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 9999px;
+}

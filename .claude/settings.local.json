@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(find c:UsersDELLAquaFlow- -name .env* -o -name *.config.*)",
+      "mcp__plugin_vapi-voice-ai_vapi-docs__searchDocs",
+      "Bash(npm install:*)",
+      "Bash(npx vite:*)",
+      "Bash(npm run:*)"
+    ]
+  }
+}

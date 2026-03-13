@@ -1,6 +1,6 @@
 {
-  "name": "AquaFlow Plumbing Chicago",
-  "description": "A modern, high-performance service website for AquaFlow Plumbing in Chicago, featuring AI-powered diagnostics and instant booking.",
+  "name": "Callahan Pipe & Drain Chicago",
+  "description": "A modern, high-performance service website for Callahan Pipe & Drain in Chicago, featuring AI-powered diagnostics and instant booking.",
   "requestFramePermissions": [
     "geolocation"
   ]

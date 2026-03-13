@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { Plus, Minus, HelpCircle, PhoneCall } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import PageMeta from '../components/PageMeta';
 
 // Typed as React.FC to ensure reserved props like 'key' are handled correctly in TypeScript
 const FAQItem: React.FC<{ question: string; answer: string }> = ({ question, answer }) => {
@@ -29,7 +30,7 @@ const FAQ: React.FC = () => {
   const faqs = [
     {
       question: "Do you offer 24/7 emergency service in Chicago?",
-      answer: "Yes! AquaFlow Plumbing provides 24-hour emergency plumbing services throughout the city and surrounding suburbs. Whether it's 2 AM on a Tuesday or Christmas morning, our dispatchers and master plumbers are on call."
+      answer: "Yes! Callahan Pipe & Drain provides 24-hour emergency plumbing services throughout the city and surrounding suburbs. Whether it's 2 AM on a Tuesday or Christmas morning, our dispatchers and master plumbers are on call."
     },
     {
       question: "How much does a typical service call cost?",
@@ -37,7 +38,7 @@ const FAQ: React.FC = () => {
     },
     {
       question: "Are your plumbers licensed and insured?",
-      answer: "Absolutely. Every AquaFlow technician is fully licensed by the City of Chicago and the State of Illinois. We carry comprehensive liability and workers' compensation insurance for your total peace of mind."
+      answer: "Absolutely. Every Callahan Pipe & Drain technician is fully licensed by the City of Chicago and the State of Illinois. We carry comprehensive liability and workers' compensation insurance for your total peace of mind."
     },
     {
       question: "How quickly can you respond to a burst pipe?",
@@ -49,12 +50,16 @@ const FAQ: React.FC = () => {
     },
     {
       question: "Can I get a rough estimate before booking?",
-      answer: "Yes! You can use our 'AquaBot' assistant on the website for a preliminary diagnostic and estimate. However, a firm quote requires an on-site physical inspection to account for all variables."
+      answer: "Yes! You can use our 'CallBot' assistant on the website for a preliminary diagnostic and estimate. However, a firm quote requires an on-site physical inspection to account for all variables."
     }
   ];
 
   return (
     <div className="bg-white min-h-screen">
+      <PageMeta
+        title="Plumbing FAQ Chicago | Callahan Pipe & Drain"
+        description="Common plumbing questions answered by Chicago's expert plumbers. Pricing, timing, emergency service, licensing, and more. Call (312) 555-0199."
+      />
       <section className="bg-slate-900 py-24 text-white">
         <div className="container mx-auto px-6 text-center">
           <div className="inline-flex items-center gap-2 bg-blue-600/20 border border-blue-500/30 px-4 py-2 rounded-full mb-8">
@@ -63,7 +68,7 @@ const FAQ: React.FC = () => {
           </div>
           <h1 className="text-5xl font-black mb-6">Frequently Asked Questions</h1>
           <p className="text-xl text-slate-400 max-w-2xl mx-auto">
-            Everything you need to know about AquaFlow services, pricing, and our commitment to Chicago homeowners.
+            Everything you need to know about Callahan Pipe & Drain services, pricing, and our commitment to Chicago homeowners.
           </p>
         </div>
       </section>

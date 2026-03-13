@@ -7,7 +7,7 @@ import { Bot, Send, X, MessageSquare } from 'lucide-react';
 const Chatbot: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<ChatMessage[]>([
-    { role: 'model', text: "Hi! I'm AquaBot. Do you have a plumbing issue I can help diagnose, or would you like a price estimate for a repair?" }
+    { role: 'model', text: "Hi! I'm CallBot, Callahan Pipe & Drain's AI assistant. Do you have a plumbing issue I can help diagnose, or would you like a price estimate for a repair?" }
   ]);
   const [input, setInput] = useState('');
   const [isTyping, setIsTyping] = useState(false);
@@ -43,8 +43,8 @@ const Chatbot: React.FC = () => {
                 <Bot className="w-5 h-5" />
               </div>
               <div>
-                <h3 className="font-bold">AquaBot Assistant</h3>
-                <p className="text-xs text-blue-100">AI Plumbing Diagnostic</p>
+                <h3 className="font-bold">CallBot Assistant</h3>
+                <p className="text-xs text-blue-100">AI Plumbing Assistant</p>
               </div>
             </div>
             <button onClick={() => setIsOpen(false)} className="hover:bg-white/10 p-2 rounded-full">
