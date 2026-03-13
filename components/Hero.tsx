@@ -32,27 +32,37 @@ const Hero: React.FC = () => {
             Expert residential and commercial plumbing with upfront pricing and 24/7 emergency support across the Windy City.
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
-            <Link to="/book" className="group bg-blue-600 hover:bg-blue-700 text-white px-10 py-5 rounded-full font-bold text-lg transition-all text-center shadow-xl shadow-blue-900/20 flex items-center justify-center gap-2">
-              Instant Booking <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            <Link to="/book" className="group bg-orange-500 hover:bg-orange-600 text-white px-10 py-5 rounded-full font-bold text-lg transition-all text-center shadow-xl shadow-orange-900/20 flex items-center justify-center gap-2">
+              Book a Technician <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Link>
             <a href="tel:3125550199" className="bg-white/10 backdrop-blur-md hover:bg-white/20 text-white border border-white/30 px-10 py-5 rounded-full font-bold text-lg transition-all text-center flex items-center justify-center gap-2">
               <PhoneCall className="w-5 h-5" /> (312) 555-0199
             </a>
           </div>
           
-          <div className="mt-12 flex items-center gap-6">
-            <div className="flex -space-x-4">
-              {[1, 2, 3, 4].map(i => (
-                <img key={i} className="w-12 h-12 rounded-full border-4 border-slate-900 object-cover" src={`https://images.unsplash.com/photo-${1500000000000 + i * 100000}?auto=format&fit=facearea&facepad=2&w=256&h=256&q=80`} alt="Customer" />
+          <div className="mt-12 flex items-center gap-5">
+            <div className="flex -space-x-3">
+              {[
+                '1507003211169-0a1dd7228f2d',
+                '1494790108377-be9c29b29330',
+                '1560250097-0b93528c311a',
+                '1573496359142-b8d87734a5a2',
+              ].map((id, i) => (
+                <img
+                  key={i}
+                  className="w-11 h-11 rounded-full border-2 border-slate-800 object-cover"
+                  src={`https://images.unsplash.com/photo-${id}?w=88&h=88&q=80&auto=format&fit=facearea&facepad=2`}
+                  alt="Chicago customer"
+                />
               ))}
             </div>
             <div>
-              <div className="flex text-yellow-400 mb-1">
-                {[1, 2, 3, 4, 5].map(i => (
-                  <Star key={i} className="w-5 h-5 fill-current" />
-                ))}
+              <div className="flex text-yellow-400 mb-1 gap-0.5">
+                {[1,2,3,4,5].map(i => <Star key={i} className="w-4 h-4 fill-current" />)}
               </div>
-              <p className="text-sm font-medium text-slate-300">4.9/5 stars from 2,500+ happy Chicagoans</p>
+              <p className="text-sm font-medium text-slate-300">
+                <span className="text-white font-bold">4.9/5</span> · 2,500+ verified Chicago reviews
+              </p>
             </div>
           </div>
         </div>

@@ -61,14 +61,20 @@ const Services: React.FC = () => {
         <div className="text-center mb-16">
           <h2 className="text-4xl font-extrabold text-slate-900 mb-4">Our Professional Services</h2>
           <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-            AquaFlow provides comprehensive, code-compliant plumbing solutions tailored to Chicago's unique architecture.
+            Callahan Pipe & Drain provides comprehensive, code-compliant plumbing solutions tailored to Chicago's unique architecture.
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {unifiedServices.map((service) => (
-            <div key={service.id} className="group bg-white p-8 rounded-3xl border border-slate-100 hover:border-blue-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full">
-              <div className="mb-6 bg-slate-50 w-16 h-16 flex items-center justify-center rounded-2xl group-hover:bg-blue-50 transition-colors">
+            <div key={service.id} className={`group bg-white p-8 rounded-3xl border shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full ${service.id === 'emergency' ? 'border-red-200 hover:border-red-400' : 'border-slate-100 hover:border-blue-200'}`}>
+              {service.id === 'emergency' && (
+                <div className="flex items-center gap-2 bg-red-50 border border-red-200 text-red-700 text-xs font-bold px-3 py-1.5 rounded-full mb-4 w-fit">
+                  <span className="flex h-2 w-2 rounded-full bg-red-500 animate-pulse"></span>
+                  Available Now · 24/7
+                </div>
+              )}
+              <div className={`mb-6 w-16 h-16 flex items-center justify-center rounded-2xl transition-colors ${service.id === 'emergency' ? 'bg-red-50 group-hover:bg-red-100' : 'bg-slate-50 group-hover:bg-blue-50'}`}>
                 {service.icon}
               </div>
               <h3 className="text-2xl font-bold text-slate-900 mb-3">{service.title}</h3>

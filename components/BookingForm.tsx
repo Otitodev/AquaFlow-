@@ -2,6 +2,14 @@
 import React, { useState } from 'react';
 import { BookingStatus } from '../types';
 import { Check, MapPin, Clock, ArrowRight, Calendar, Wrench } from 'lucide-react';
+import PageMeta from './PageMeta';
+
+const BOOKING_META = (
+  <PageMeta
+    title="Book a Chicago Plumber | Callahan Pipe & Drain"
+    description="Schedule a licensed Chicago plumber online. Same-day service, upfront flat-rate pricing. Average arrival 45–75 min. Call (312) 555-0199."
+  />
+);
 
 const BookingForm: React.FC = () => {
   const [status, setStatus] = useState<BookingStatus>(BookingStatus.IDLE);
@@ -31,6 +39,8 @@ const BookingForm: React.FC = () => {
 
   if (status === BookingStatus.SUCCESS) {
     return (
+      <>
+      {BOOKING_META}
       <div className="container mx-auto px-6 py-20">
         <div className="max-w-2xl mx-auto bg-white rounded-3xl shadow-2xl overflow-hidden border border-slate-100">
           <div className="bg-emerald-500 p-8 text-center text-white">
@@ -90,10 +100,13 @@ const BookingForm: React.FC = () => {
           </div>
         </div>
       </div>
+      </>
     );
   }
 
   return (
+    <>
+    {BOOKING_META}
     <div className="container mx-auto px-6 py-12">
       <div className="max-w-4xl mx-auto flex flex-col md:flex-row bg-white rounded-3xl overflow-hidden shadow-2xl">
         <div className="md:w-2/5 bg-blue-600 text-white p-10 flex flex-col justify-between">
@@ -122,7 +135,7 @@ const BookingForm: React.FC = () => {
             </div>
           </div>
           <div className="mt-12 bg-white/10 p-4 rounded-2xl text-sm italic">
-            "AquaFlow fixed my burst pipe in 40 minutes at 2 AM on a Sunday. Lifesavers!" - Sarah J., West Loop
+            "Callahan fixed my burst pipe in 40 minutes at 2 AM on a Sunday. Lifesavers!" - Sarah J., West Loop
           </div>
         </div>
         
@@ -195,6 +208,7 @@ const BookingForm: React.FC = () => {
         </form>
       </div>
     </div>
+    </>
   );
 };
 

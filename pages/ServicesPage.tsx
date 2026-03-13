@@ -3,15 +3,20 @@ import React from 'react';
 import { CheckCircle2, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { unifiedServices } from '../components/Services';
+import PageMeta from '../components/PageMeta';
 
 const ServicesPage: React.FC = () => {
   return (
     <div className="bg-slate-50 min-h-screen">
+      <PageMeta
+        title="Plumbing Services Chicago | Callahan Pipe & Drain"
+        description="Full-service plumbing in Chicago: emergency repairs, water heaters, drain cleaning, flood protection, boiler service. Licensed & insured. Flat-rate pricing from $99."
+      />
       <section className="bg-blue-600 py-24 text-white text-center">
         <div className="container mx-auto px-6">
           <h1 className="text-5xl md:text-6xl font-black mb-6 leading-tight">Chicago's Full-Service <br/>Plumbing Experts</h1>
           <p className="text-xl opacity-90 max-w-2xl mx-auto leading-relaxed">
-            From the historic homes of Gold Coast to the modern high-rises in the West Loop, AquaFlow delivers reliable, code-compliant solutions.
+            From the historic homes of Gold Coast to the modern high-rises in the West Loop, Callahan Pipe & Drain delivers reliable, code-compliant solutions.
           </p>
         </div>
       </section>
@@ -66,7 +71,7 @@ const ServicesPage: React.FC = () => {
       <section className="py-24 bg-white border-t border-slate-100">
         <div className="container mx-auto px-6 flex flex-col lg:flex-row items-center gap-16">
           <div className="lg:w-1/2">
-            <h2 className="text-4xl font-black text-slate-900 mb-6">The AquaFlow Standard</h2>
+            <h2 className="text-4xl font-black text-slate-900 mb-6">The Callahan Standard</h2>
             <p className="text-slate-600 text-lg mb-8 leading-relaxed">
               We don't just fix pipes; we provide peace of mind. Every service call includes a comprehensive safety inspection of your home's main plumbing lines to prevent future emergencies.
             </p>
@@ -90,14 +95,21 @@ const ServicesPage: React.FC = () => {
             </div>
           </div>
           <div className="lg:w-1/2">
-            <div className="relative">
-              <img 
-                src="https://images.unsplash.com/photo-1542013936693-884638332954?auto=format&fit=crop&q=80&w=1000" 
-                alt="Chicago Infrastructure" 
-                className="rounded-3xl shadow-2xl relative z-10"
-              />
-              <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-blue-600 rounded-3xl -z-0 opacity-20"></div>
-              <div className="absolute -top-6 -left-6 w-32 h-32 bg-blue-600 rounded-3xl -z-0 opacity-10"></div>
+            <div className="bg-blue-900 rounded-3xl p-8 grid grid-cols-2 gap-4" style={{
+              backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.05) 1px, transparent 1px)',
+              backgroundSize: '24px 24px'
+            }}>
+              {[
+                { value: 'Flat-Rate', label: 'Pricing — no hourly surprises' },
+                { value: 'Licensed', label: 'IL Lic #055-123456 · Fully Insured' },
+                { value: '1-Year', label: 'Warranty on all parts & labor' },
+                { value: '24/7', label: 'Emergency dispatch · 365 days' },
+              ].map((item, i) => (
+                <div key={i} className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/10">
+                  <p className="text-2xl font-black text-orange-400 mb-1">{item.value}</p>
+                  <p className="text-sm text-blue-200">{item.label}</p>
+                </div>
+              ))}
             </div>
           </div>
         </div>

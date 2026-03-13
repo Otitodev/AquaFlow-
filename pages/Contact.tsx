@@ -1,10 +1,15 @@
 
 import React from 'react';
 import { MapPin, Phone, Mail, Clock, MessageSquare } from 'lucide-react';
+import PageMeta from '../components/PageMeta';
 
 const Contact: React.FC = () => {
   return (
     <div className="bg-white min-h-screen">
+      <PageMeta
+        title="Contact a Chicago Plumber | Callahan Pipe & Drain"
+        description="Contact Callahan Pipe & Drain — Chicago's 24/7 plumber. Call (312) 555-0199 or send a message online. Serving all Chicago neighborhoods."
+      />
       <section className="bg-slate-50 py-20">
         <div className="container mx-auto px-6 text-center">
           <h1 className="text-5xl font-black text-slate-900 mb-6">Get in Touch</h1>
@@ -40,7 +45,7 @@ const Contact: React.FC = () => {
                     <Mail className="w-6 h-6 text-blue-200 shrink-0" />
                     <div>
                       <p className="font-bold">Email</p>
-                      <p className="text-blue-100 opacity-80">service@aquaflow.com</p>
+                      <p className="text-blue-100 opacity-80">service@callahanpipeanddrain.com</p>
                     </div>
                   </div>
                   <div className="flex gap-4">
@@ -58,10 +63,7 @@ const Contact: React.FC = () => {
                   <MessageSquare className="w-6 h-6" />
                   <h4 className="font-bold text-slate-900">Immediate Support</h4>
                 </div>
-                <p className="text-slate-600 text-sm mb-6">Use our AI assistant in the bottom right corner for instant diagnostics and quick estimates.</p>
-                <button className="w-full py-3 bg-white border border-slate-200 rounded-xl font-bold text-slate-700 hover:bg-slate-100 transition-colors">
-                  Open Chat
-                </button>
+                <p className="text-slate-600 text-sm">Use our AI assistant in the <strong className="text-slate-800">bottom-right corner</strong> of this page for instant diagnostics and quick cost estimates.</p>
               </div>
             </div>
 
