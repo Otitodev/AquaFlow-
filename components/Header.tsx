@@ -7,8 +7,6 @@ const Header: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const location = useLocation();
-  const isHome = location.pathname === '/';
-
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener('scroll', handleScroll);
@@ -19,9 +17,7 @@ const Header: React.FC = () => {
     setMobileOpen(false);
   }, [location]);
 
-  const linkClass = (scrolled || !isHome)
-    ? 'text-slate-700 hover:text-orange-500'
-    : 'text-white hover:text-orange-300';
+  const linkClass = 'text-slate-700 hover:text-orange-500';
 
   const navLinks = [
     { to: '/services', label: 'Services' },
@@ -48,10 +44,10 @@ const Header: React.FC = () => {
       </div>
 
       {/* Main Nav */}
-      <header className={`fixed top-8 left-0 right-0 z-40 transition-all duration-300 ${scrolled || !isHome ? 'glass-morphism shadow-md py-3' : 'bg-blue-900/80 backdrop-blur-sm py-4'}`}>
+      <header className={`fixed top-8 left-0 right-0 z-40 transition-all duration-300 ${scrolled ? 'glass-morphism shadow-md py-3' : 'bg-white shadow-sm py-4'}`}>
         <div className="container mx-auto px-6 flex justify-between items-center">
           <Link to="/" className="flex items-center">
-            <img src="/mainlogoP.png" alt="Callahan Pipe & Drain" className="h-14 w-auto" />
+            <img src="/mainlogoN.svg" alt="Callahan Pipe & Drain" className="h-14 w-auto" />
           </Link>
 
           <nav className="hidden md:flex items-center gap-8 font-semibold">
@@ -68,8 +64,8 @@ const Header: React.FC = () => {
 
           <button className="md:hidden p-2" onClick={() => setMobileOpen(!mobileOpen)} aria-label="Toggle menu">
             {mobileOpen
-              ? <X className={`w-7 h-7 ${scrolled || !isHome ? 'text-slate-900' : 'text-white'}`} />
-              : <Menu className={`w-7 h-7 ${scrolled || !isHome ? 'text-slate-900' : 'text-white'}`} />
+              ? <X className="w-7 h-7 text-slate-900" />
+              : <Menu className="w-7 h-7 text-slate-900" />
             }
           </button>
         </div>

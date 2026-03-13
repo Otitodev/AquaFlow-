@@ -21,7 +21,7 @@ const Footer: React.FC = () => {
           {/* Brand */}
           <div className="col-span-1">
             <Link to="/" className="flex items-center mb-6">
-              <img src="/mainlogoP.png" alt="Callahan Pipe & Drain" className="h-12 w-auto" />
+              <img src="/mainlogoN.svg" alt="Callahan Pipe & Drain" className="h-12 w-auto" />
             </Link>
             <p className="text-sm leading-relaxed text-slate-400 mb-6">
               Serving the greater Chicago metropolitan area with pride. Residential, commercial, and industrial plumbing solutions available 24/7.
